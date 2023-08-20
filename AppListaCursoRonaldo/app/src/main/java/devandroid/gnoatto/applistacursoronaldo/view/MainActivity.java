@@ -1,6 +1,7 @@
-package devandroid.gnoatto.applistacursoronaldo;
+package devandroid.gnoatto.applistacursoronaldo.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import devandroid.gnoatto.applistacursoronaldo.R;
 
 import android.os.Bundle;
 
