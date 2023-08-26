@@ -5,6 +5,7 @@ import devandroid.gnoatto.applistacursoronaldo.R;
 import devandroid.gnoatto.applistacursoronaldo.model.Pessoa;
 
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         outraPessoa.setSobreNome("Gno");
         outraPessoa.setCursoDesejado("Java");
         outraPessoa.setTelefoneContato("41-992250000");
-
+/*
         dadosPessoa = "Primeiro nome: ";
         dadosPessoa += pessoa.getPrimeiroNome();
         dadosPessoa += " Sobrenome: ";
@@ -51,7 +52,11 @@ public class MainActivity extends AppCompatActivity {
         dadosOutraPessoa += " Telefone de Contato: ";
         dadosOutraPessoa += outraPessoa.getTelefoneContato();
 
-        int parada = 0;
+*/
+
+        Log.i("POOAndroid","Objeto pessoa: "+pessoa.toString());
+        Log.i("POOAndroid","Objeto pessoa: "+outraPessoa.toString());
+
 
     }
 }
