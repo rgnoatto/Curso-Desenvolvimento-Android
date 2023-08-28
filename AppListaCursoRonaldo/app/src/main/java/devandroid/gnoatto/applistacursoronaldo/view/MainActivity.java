@@ -84,5 +84,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("POOAndroid", "Objeto pessoa: " + pessoa.toString());
         Log.i("POOAndroid", "Objeto pessoa: " + outraPessoa.toString());
 
+
     }
 }
