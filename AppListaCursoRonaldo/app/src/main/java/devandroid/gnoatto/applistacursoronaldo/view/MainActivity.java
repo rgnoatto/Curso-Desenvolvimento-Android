@@ -2,6 +2,7 @@ package devandroid.gnoatto.applistacursoronaldo.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import devandroid.gnoatto.applistacursoronaldo.R;
+import devandroid.gnoatto.applistacursoronaldo.controller.PessoaController;
 import devandroid.gnoatto.applistacursoronaldo.model.Pessoa;
 
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    PessoaController controller;
     Pessoa pessoa;
     Pessoa outraPessoa;
     EditText editPrimeiroNome;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        controller = new PessoaController();
         pessoa = new Pessoa();
 
         outraPessoa = new Pessoa();
@@ -78,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
                 Toast.makeText(MainActivity.this, "Salvo" + pessoa.toString(), Toast.LENGTH_LONG).show();
+
+                controller.salvar(pessoa);
+                controller.toString();
+
             }
         });
 
