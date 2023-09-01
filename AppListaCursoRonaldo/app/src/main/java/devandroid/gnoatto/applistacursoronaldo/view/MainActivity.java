@@ -5,6 +5,7 @@ import devandroid.gnoatto.applistacursoronaldo.R;
 import devandroid.gnoatto.applistacursoronaldo.controller.PessoaController;
 import devandroid.gnoatto.applistacursoronaldo.model.Pessoa;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    SharedPreferences preferences;
+    public static final String NOME_PREFERENCES = "pref_listavip";
+
 
     PessoaController controller;
     Pessoa pessoa;
@@ -30,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        preferences = getSharedPreferences(NOME_PREFERENCES,0);
+        SharedPreferences.Editor listavip = preferences.edit();
 
         controller = new PessoaController();
         pessoa = new Pessoa();
@@ -81,6 +90,12 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
                 Toast.makeText(MainActivity.this, "Salvo" + pessoa.toString(), Toast.LENGTH_LONG).show();
+
+                listavip.putString("primeiroNome", pessoa.getPrimeiroNome());
+                listavip.putString("sobrenome", pessoa.getSobreNome());
+                listavip.putString("nomeCurso", pessoa.getCursoDesejado());
+                listavip.putString("telefoneContato", pessoa.getTelefoneContato());
+                listavip.apply();
 
                 controller.salvar(pessoa);
                 controller.toString();
